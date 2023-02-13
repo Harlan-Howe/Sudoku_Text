@@ -35,7 +35,11 @@ public class SudokuRunner
     public static void main(String[] args)
     {
         System.out.println("Sudoku...");
+        SudokuRunner app = new SudokuRunner();
+        app.load_Sudoku_file();
     }
+
+
 
     public void load_Sudoku_file()
     {
@@ -78,12 +82,21 @@ public class SudokuRunner
         for (int r = 0; r < 9; r++)
         {
             if (r%3 == 0)
-                output.append("+---+---+---+");
+                output.append("+---+---+---+\n");
             for (int c = 0; c < 9; c++)
             {
                 if (c%3 == 0)
                     output.append("|");
-                output.append(".");
+                if (myGrid[r][c] == 0)
+                    output.append(".");
+                else if (myGrid[r][c] < 0)
+                {   // print the number in bold.
+                    output.append("\u001b[1m");
+                    output.append("" + Math.abs(myGrid[r][c]));
+                    output.append("\u001b[0m");
+                }
+                else
+                    output.append(""+myGrid[r][c]);
             }
             output.append("|\n");
         }
