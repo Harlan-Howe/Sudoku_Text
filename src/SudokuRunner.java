@@ -39,8 +39,6 @@ public class SudokuRunner
         app.load_Sudoku_file();
     }
 
-
-
     public void load_Sudoku_file()
     {
         JFileChooser chooser = new JFileChooser();
@@ -105,4 +103,38 @@ public class SudokuRunner
         return output.toString();
     }
 
+    /**
+     * indicates whether there are matching 1-9 numbers in any row, col, or sector. Uses absolute values.
+     * @return - true if there is a conflict, false otherwise.
+     */
+    public boolean hasConflicts()
+    {
+        return false;  // TODO: (suggested) write this method to determine whether there is a conflict in myGrid.
+    }
+
+    /**
+     * attempts to solve this sudoku
+     * @return - whether it was successful.
+     */
+    public boolean solveSudoku()
+    {
+        // TODO: you write this wrapper function, which will probably mostly consist of calling the recursive method.
+        return false; // update this.
+    }
+
+    /**
+     * attempts to fill in the remainder of the sudoku, starting at (r,c)... tries all 0-9 at this location and sees
+     * whether there is any way to fill in the rest of the grid. If there is, leave these numbers filled in and return
+     * true. Otherwise, restore this value to zero and return false. (If the number at (r, c) is negative, skip to the
+     * next cell and return whatever it said.
+     * @param r - row of cell to test
+     * @param c - column of cell to test
+     * @return - whether we found a solution with any value 0-9 in this cell.
+     */
+    public boolean solveSudokuFromIndex(int r, int c)
+    {
+        // TODO: you write this recursive function.
+
+        return false; // update this.
+    }
 }
