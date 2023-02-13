@@ -1,6 +1,11 @@
+import javax.swing.*;
+import java.io.*;
+import java.util.Scanner;
+
 public class SudokuRunner
 {
-
+    private int[][] myGrid;
+    private File lastFile;
     /*
     Yeah, this is a pretty blank program. I'd suggest that you...
 
@@ -31,4 +36,60 @@ public class SudokuRunner
     {
         System.out.println("Sudoku...");
     }
+
+    public void load_Sudoku_file()
+    {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Select a Sudoku text file.");
+        if (lastFile !=null)
+            chooser.setSelectedFile(lastFile);
+        int result = chooser.showOpenDialog(null);
+        if (JFileChooser.APPROVE_OPTION == result)
+        {
+            lastFile = chooser.getSelectedFile();
+
+            try
+            {
+                Scanner reader = new Scanner(lastFile);
+                myGrid = new int[9][9];
+                for (int r = 0; r<9; r++)
+                    for (int c = 0; c<9; c++)
+                        myGrid[r][c] = reader.nextInt();
+
+            }catch (Exception exp)
+            {
+                exp.printStackTrace();
+                System.exit(0);
+            }
+
+            System.out.println("Sudoku Loaded");
+            System.out.println(this);
+        }
+        else
+        {
+            System.out.println("You cancelled the load, so goodbye.");
+            System.exit(1);
+        }
+    }
+
+    public String toString()
+    {
+        StringWriter output = new StringWriter();
+        for (int r = 0; r < 9; r++)
+        {
+            if (r%3 == 0)
+                output.append("+---+---+---+");
+            for (int c = 0; c < 9; c++)
+            {
+                if (c%3 == 0)
+                    output.append("|");
+                output.append(".");
+            }
+            output.append("|\n");
+        }
+        output.append("+---+---+---+");
+
+        return output.toString();
+    }
+
 }
