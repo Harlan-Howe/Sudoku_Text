@@ -19,9 +19,9 @@ public class SudokuRunner
     DONE: Write a method draw the grid out. Use absolute values (Math.abs) for numbers and spaces for blanks.
 
     Write a method to determine whether the current grid has conflicts in it. Again, use absolute values. (Optionally,
-    just worry about the conflicts associated with a given (r, c).)
+    just worry about the conflicts associated with a given (r, c).) (I've written a stub function for you.)
 
-    Write a wrapper method to get the solver started.
+    Write a wrapper method to get the solver started. (I've written a stub function for you.)
 
     Write a recursive method to try to solve the rest of the grid, from a given location forward.
             Base cases? (Is this a negative number already? Have we gotten to the end?)
@@ -30,6 +30,8 @@ public class SudokuRunner
              recursive spot... try a number and check whether there is a solution in the remainder of the board.
 
             return whether we found a solution or not. (boolean)
+
+            (I've written a stub function for you.)
      */
 
     public static void main(String[] args)
